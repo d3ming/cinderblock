@@ -5,7 +5,7 @@
 
 ## Install
 - Clone the repo
-- Install via `make` or `pip install -e .`
+- Install via `pip install -e .`
 - The `cinderblock` and `commitstatus` commands should be installed now from your development env
 
 ## Test
