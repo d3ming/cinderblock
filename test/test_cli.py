@@ -153,10 +153,21 @@ def commit_status(cli, monkeypatch, circleci_env, update_environment):
 
 
 def test_update_commit(commit_status, update_environment):
-    '''The commit to update comes from $CINDERBLOCK_SOURCE_COMMIT.'''
+    '''The commit to update comes from $CINDERBLOCK_SOURCE_COMMIT.
+
+    The github user is always "paperg". This is a kludge. When we post the
+    commit status to github, github_user (or "owner" as the github API docs
+    describe it) needs to be the owner of the repo being merged into, not
+    merged from.
+
+    With some more sophistication, we could determine if tests are running for
+    a PR, and then determine the being-merged-into owner from that. But that's
+    hard, and in practice almost all PRs are into repos owned by "paperg", so
+    just do the easy thing for now.
+    '''
     source_commit = update_environment['CINDERBLOCK_SOURCE_COMMIT']
     user, repo, sha1 = source_commit.split('/')
-    assert commit_status['github_user'] == user
+    assert commit_status['github_user'] == 'paperg'
     assert commit_status['repo_name'] == repo
     assert commit_status['commit_sha1'] == sha1
 

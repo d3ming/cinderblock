@@ -58,6 +58,7 @@ class CLI(object):
         github_token = os.environ['CINDERBLOCK_GITHUB_API_TOKEN']
         # TODO: handle missing environment variable
         github_user, repo_name, commit_sha = commit.split('/')
+        github_user = 'paperg'
         self.update.post_github_commit_status(state=args.state,
                                               context='ci/cinderblock',
                                               details_url=args.details_url,
