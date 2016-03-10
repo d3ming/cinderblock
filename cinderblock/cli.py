@@ -17,7 +17,7 @@ class CLI(object):
 
     def main(self, *args):
         arg_parser = _arg_parser()
-        args = self._parse_args(arg_parser, args)
+        args = arg_parser.parse_args(args)
 
         if args.action == 'trigger':
             self.trigger(args)
@@ -65,17 +65,6 @@ class CLI(object):
                                               commit_sha1=commit_sha,
                                               github_user=github_user,
                                               github_api_token=github_token)
-
-    def _parse_args(self, arg_parser, args):
-        args = arg_parser.parse_args(args)
-
-        args.circle_api_token = os.environ.get('CIRCLE_API_TOKEN')
-        args.circle_build_num = os.environ.get('CIRCLE_BUILD_NUM')
-        args.circle_sha1 = os.environ.get('CIRCLE_SHA1')
-        args.circle_build_url = os.environ.get('CIRCLE_BUILD_URL')
-        args.circle_project_reponame = os.environ.get('CIRCLE_PROJECT_REPONAME')
-
-        return args
 
 
 def _arg_parser():
