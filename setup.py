@@ -53,8 +53,7 @@ if __name__ == '__main__':
         packages=['cinderblock'],
         entry_points={
             'console_scripts': [
-                'cinderblock = cinderblock.cinderblock:main',
-                'commitstatus = cinderblock.commitstatus:main',
+                'cinderblock = cinderblock.main:main',
             ]
         },
         install_requires=[

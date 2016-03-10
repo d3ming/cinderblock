@@ -8,8 +8,8 @@ import os
 from circleclient import circleclient
 
 
-def main():
-    args = __parse_args()
+def main(args):
+    #args = __parse_args()
     client = circleclient.CircleClient(args.circle_api_token)
 
     # Trigger a parametized build with the integration project with
@@ -66,5 +66,7 @@ def __parse_args():
     __validate_args(args, argparser)
     return args
 
+"""TODO REMOVE
 if __name__ == '__main__':
     main()
+"""
