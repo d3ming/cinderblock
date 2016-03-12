@@ -1,4 +1,5 @@
 # cinderblock
+[![Code Climate](https://codeclimate.com/github/paperg/cinderblock/badges/gpa.svg)](https://codeclimate.com/github/paperg/cinderblock)
 
 Scenario: You are using CircleCI and GitHub. You have some product that is made
 of several components. Each component has its own git repository and project on

@@ -60,6 +60,7 @@ if __name__ == '__main__':
             'circleclient',
             'requests',
             'zope.interface',
+            'coveralls'
         ],
         tests_require=[
             'tox',
